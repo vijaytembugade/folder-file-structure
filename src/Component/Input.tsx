@@ -1,12 +1,19 @@
+import { useEffect, useRef } from "react";
 import { Actions } from "./Folder";
 
 export function Input(props) {
   const { name, dispatch, adderFun, state } = props;
 
+  const inputRef = useRef(null);
+
+  useEffect(()=>{
+    inputRef?.current?.focus()
+  },[])
+
   return (
     <>
       {state && state[name]?.showInput && (
-        <form onSubmit={adderFun} style={{display:"flex", alignItems:'center', marginTop: '12px'}}>
+        <form onSubmit={adderFun} style={{display:"flex", alignItems:'center', marginTop: '12px'}} autoFocus={true}>
           <input
             value={state && state[name] && state[name].value}
             onChange={(e) =>
@@ -16,6 +23,7 @@ export function Input(props) {
                 name: name,
               })
             }
+            ref={inputRef}
           />
 
           <button type="submit">
