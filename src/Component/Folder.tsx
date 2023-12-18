@@ -1,5 +1,12 @@
+import { useStructure } from "../Context/StructureProvider";
+
 export function Folder(props) {
   const { name = null } = props;
+
+  const {addFile, files} = useStructure();
+  const handleAddFile = ()=>{
+    addFile(files, name, {type: 'file', name: 'file7.txt'})
+  }
   return (
     <>
       <img
@@ -11,7 +18,7 @@ export function Folder(props) {
         }
       />
       <p>{name}</p>
-      <button>add file</button>
+      <button onClick={handleAddFile}>add file</button>
       <button>add folder</button>
     </>
   );

@@ -6,7 +6,7 @@ const styles = { display: 'flex', alignItems: 'center', gap: 3 };
 export function Structure({ files }) {
   return (
     <>
-      {files.map((item) => {
+      {files?.map((item) => {
         return (
           <div key={item.name}>
             {item.type === 'folder' ? (
