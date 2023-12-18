@@ -1,5 +1,6 @@
-import { File } from './Component/File';
-import { Folder } from './Component/Folder';
+
+import { File } from './File';
+import { Folder } from './Folder';
 
 const styles = { display: 'flex', alignItems: 'center', gap: 3 };
 
@@ -20,7 +21,7 @@ export function Structure({ files }) {
               </>
             ) : (
               <div style={styles}>
-                <File name={item.name} />
+                <File name={item?.name} />
               </div>
             )}
           </div>

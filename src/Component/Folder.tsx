@@ -1,12 +1,21 @@
 import { useStructure } from "../Context/StructureProvider";
+import { addFile } from "../helpers/addFile";
 
 export function Folder(props) {
   const { name = null } = props;
 
-  const {addFile, files} = useStructure();
+  const { files, setFiles} = useStructure();
+
   const handleAddFile = ()=>{
-    addFile(files, name, {type: 'file', name: 'file7.txt'})
+    const data = addFile(files, name, {type: 'file', name: (Math.random()*1000000).toFixed(0) + '.txt'})
+    setFiles([...data])
   }
+
+  const handleAddFolder=()=>{
+    const data = addFile(files, name, {type: 'folder', name: (Math.random()*1000000).toFixed(0) + '-folder' , structure: [] })
+    setFiles([...data])
+  }
+
   return (
     <>
       <img
@@ -19,7 +28,7 @@ export function Folder(props) {
       />
       <p>{name}</p>
       <button onClick={handleAddFile}>add file</button>
-      <button>add folder</button>
+      <button onClick={handleAddFolder}>add folder</button>
     </>
   );
 }

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Structure } from './Structure';
+import { Structure } from './Component/Structure';
 
 import './style.css';
 import { useStructure } from './Context/StructureProvider';

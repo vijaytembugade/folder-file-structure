@@ -8,26 +8,8 @@ const StructureContext = createContext(null);
 const StructureProvider = ({ children }) => {
     const [files, setFiles] = useState<any>(data.structure);
 
-    const addFile = (filesData, name, options) => {
-        
-        for(let i = 0; i <filesData.length; i++ ){
-            if(filesData[i].type === 'folder'){
-                if(filesData[i].name === name){
-                    filesData[i].structure.push({
-                        type: options?.type,
-                        name: options?.name
-                    })
-                }else {
-                    return addFile(filesData[i].structure, name, options)
-                }
-            }
-        }
-        console.log(filesData, "filedata");
-        setFiles(filesData)
-    }
-
-
-    return <StructureContext.Provider value={{ files, setFiles, addFile }}>{children}</StructureContext.Provider>
+    console.log(files)
+    return <StructureContext.Provider value={{ files, setFiles }}>{children}</StructureContext.Provider>
 }
 
 const useStructure = () => {
