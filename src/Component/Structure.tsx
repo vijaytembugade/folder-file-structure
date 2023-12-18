@@ -15,7 +15,7 @@ export function Structure({ files }) {
                 <div style={styles}>
                   <Folder name={item.name} />
                 </div>
-                <div style={{ paddingLeft: '1rem' }}>
+                <div style={{paddingLeft: '32px',borderLeft: '1px solid black'}}>
                   <Structure files={item.structure} />
                 </div>
               </>
