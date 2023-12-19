@@ -69,7 +69,7 @@ export function Folder(props) {
   const handleAddFolder = () => {
     const data = addFile(files, name, {
       type: "folder",
-      name: state[name]?.value + ".fld",
+      name: state[name]?.value ,
       structure: [],
     });
     setFiles([...data]);
